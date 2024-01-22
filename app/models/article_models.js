@@ -1,26 +1,27 @@
-module.exports = (sequelize, Sequelize) => {
-    const Article = sequelize.define('article', {
-        id: {
-            type: Sequelize.STRING,
-            autoIncrement: true,
-        },
-        title: {
-            type: Sequelize.STRING,
-            allowNull: false,
-        },
-        description: {
-            type: Sequelize.STRING,
-            allowNull: false
-        },
-        author: {
-            type: Sequelize.STRING,
-            allowNull: false,
-        },
-        time: {
-            type: Sequelize.DATE,
-            allowNull: false
-        },
-    });
+const sequelize = require('sequelize');
 
-    return Article;
-}
+require('dotenv').config();
+
+const Article = sequelize.define('article', {
+    id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+    },
+    judul: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    description: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    author: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    date: {
+        type: DataTypes.DATE,
+        allowNull: false,
+    },
+})
