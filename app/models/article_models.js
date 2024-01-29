@@ -1,14 +1,13 @@
-const sequelize = require('sequelize');
-
-require('dotenv').config();
+const sequelize = require('../database/db_config');
+const { DataTypes } = require('sequelize');
 
 const Article = sequelize.define('article', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
-        autoIncrement: true,
+        allowNull: true,
     },
-    judul: {
+    title: {
         type: DataTypes.STRING,
         allowNull: false,
     },
@@ -24,4 +23,7 @@ const Article = sequelize.define('article', {
         type: DataTypes.DATE,
         allowNull: false,
     },
-})
+});
+
+
+module.exports = Article;
